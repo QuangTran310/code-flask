@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <form method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-12 text-center">
+                    <div class="alert alert-primary" role="alert">
+                        <label class="font-weight-bold h3">Weather Forecast</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Date : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="date" class="form-control" id="datepicker" name="datepicker" placeholder="Enter Date"
+                        required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Mean Temperature : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="number" class="form-control" value="1" id="meantemp" name="meantemp"
+                        placeholder="Enter Mean Temperature" min="-10" max="42" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Max Temperature : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="number" class="form-control" id="maxtemp" name="maxtemp"
+                        placeholder="Enter Max Temperature" min="-10" max="42" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Min Temperature : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="number" class="form-control" id="mintemp" name="mintemp"
+                        placeholder="Enter Min Temperature" min="-10" max="42" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Mean Humidity : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="number" class="form-control" id="minhumidity" name="minhumidity"
+                        placeholder="Enter Mean Humidity" min="70" max="97" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Mean Dew : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="number" class="form-control" id="meandew" name="meandew" placeholder="Enter Mean Dew"
+                        min="22" max="27" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5 text-right">
+                    <label class="font-weight-bold pt-1">Pressure : </label>
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="number" class="form-control" id="pressure" name="pressure" placeholder="Enter Pressure"
+                        min="995" max="1050" required>
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-md-8 text-right">
+                    <button type="submit" onclick="myFunction()" class="btn btn-primary">Predict</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="my_tag">
+        {% for post in posts %}
+        <a href="#">
+            <h2> accuracy: {{ post }}</h2>
+        </a>
+        <span class="badge badge-primary"> prediction: {{ post}}</span>
+        <hr>
+        {% endfor %}
+    </div>
+
+    <script type="text/javascript">
+        function myFunction() {
+            var x = document.getElementsByClassName('my_tag');
+            console.log(x)
+            if (x.style.visibility === 'hidden') {
+                x.style.visibility = 'visible';
+            } else {
+                x.style.visibility = 'hidden';
+            }
+        }
+    </script>
+</body>
+
+</html>
